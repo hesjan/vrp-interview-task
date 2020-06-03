@@ -5,6 +5,7 @@ import Product from '../pages/Product';
 import ProductAddedToBasket from '../pages/ProductAddedToBasket';
 import Basket from '../pages/Basket';
 import { startBrowserMaximized } from '../helpers/test-utils';
+import Filters from '../pages/Filters';
 
 describe('User', () => {
 	const testData = [{ productGroup: 'Juventus Turyn' }, { productGroup: 'Bayern Monachium' }];
@@ -14,6 +15,8 @@ describe('User', () => {
 			startBrowserMaximized();
 			PromotionalBanner.rejectConsent();
 			Header.searchFor(data.productGroup);
+			Filters.clickOnlyBuyNow();
+			browser.debug();
 			SearchResults.selectRandomProductOnThePage();
 			const productName = Product.getName();
 			Product.clickAddToBasketButton();

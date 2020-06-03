@@ -1,3 +1,5 @@
 node_modules
 .idea
 screenshots
+allure-results
+allure-report

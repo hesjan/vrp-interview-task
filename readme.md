@@ -12,6 +12,7 @@ Interview task
 - Tests requires following libraries/tools to be installed in your computer:
   - `Node.js` version 10 or higher
   - `npm` version 6 or higher
+  - `java` version 8 or higher to generate allure report
   - `Chrome` browser installed
   - `Firefox` browser installed
 ## How to Start
@@ -29,3 +30,7 @@ Interview task
 **Run Test in firefox browser**
 
 ```npm run test:firefox```
+
+**Generate allure reports**
+
+``npm run allure``
