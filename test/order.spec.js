@@ -7,15 +7,19 @@ import Basket from '../pages/Basket';
 import { startBrowserMaximized } from '../helpers/test-utils';
 
 describe('User', () => {
-	it(`should be able to order product`, () => {
-		startBrowserMaximized();
-		PromotionalBanner.rejectConsent();
-		Header.searchFor('Bayern Monachium Strój');
-		SearchResults.selectRandomProductOnThePage();
-		const productName = Product.getName();
-		Product.clickAddToBasketButton();
-		ProductAddedToBasket.clickOnGoToBasket();
-		const productNameFromBasket = Basket.getProductName();
-		expect(productNameFromBasket).to.equal(`${productName}`);
+	const testData = [{ productGroup: 'Juventus Turyn' }, { productGroup: 'Bayern Monachium' }];
+
+	testData.forEach(data => {
+		it(`should be able to order product related to ${data.productGroup}`, () => {
+			startBrowserMaximized();
+			PromotionalBanner.rejectConsent();
+			Header.searchFor(data.productGroup);
+			SearchResults.selectRandomProductOnThePage();
+			const productName = Product.getName();
+			Product.clickAddToBasketButton();
+			ProductAddedToBasket.clickOnGoToBasket();
+			const productNameFromBasket = Basket.getProductName();
+			expect(productNameFromBasket).to.have.string(productName);
+		});
 	});
 });
