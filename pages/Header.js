@@ -9,6 +9,7 @@ class Header {
 		return $('button[data-role="search-button"]');
 	}
 	searchFor(searchPhrase) {
+		logger.step(`Searching for '${searchPhrase}' products`);
 		this.searchInput.waitForDisplayed();
 		this.searchInput.setValue(searchPhrase);
 		// I decided to use enter because I believe it's more common scenario then clicking on eyeglass, in standard project I would prefer to cover both scenarios

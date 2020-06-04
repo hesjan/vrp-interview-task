@@ -9,10 +9,12 @@ class Product {
 		return $('[data-box-name="summary"] h1');
 	}
 	clickAddToBasketButton() {
+		logger.step('Adding product to basket');
 		this.addToBasketButton.waitForDisplayed();
 		this.addToBasketButton.click();
 	}
 	getName() {
+		logger.step('Getting name of the product from product page');
 		this.name.waitForDisplayed();
 		return this.name.getText();
 	}

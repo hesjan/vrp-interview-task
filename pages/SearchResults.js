@@ -12,6 +12,7 @@ class SearchResults {
 		return $$('#opbox-listing--base article');
 	}
 	selectRandomProductOnThePage() {
+		logger.step('Selecting random product from the page');
 		this.section.waitForDisplayed();
 		const numberOfProduct = this.productsOnThePage.length;
 		const randomNumber = Math.floor(Math.random() * numberOfProduct);

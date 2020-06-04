@@ -6,6 +6,7 @@ class ProductAddedToBasketModal {
 		return $('button[data-analytics-interaction-label="continueShopping"]');
 	}
 	clickOnGoToBasket() {
+		logger.step('Clicking on go to basket button on the modal');
 		this.goToBasketButton.waitForDisplayed();
 		this.goToBasketButton.click();
 	}

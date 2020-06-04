@@ -6,6 +6,7 @@ class Basket {
 		return $('offer-title');
 	}
 	getProductName() {
+		logger.step('Getting name of the product from Basket page');
 		this.productName.waitForDisplayed();
 		return this.productName.getText();
 	}

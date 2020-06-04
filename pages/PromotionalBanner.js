@@ -9,6 +9,7 @@ class PromotionalBanner {
 		return $('button[data-role="accept-consent"]');
 	}
 	rejectConsent() {
+		logger.step('Rejecting consent');
 		this.rejectButton.waitForDisplayed();
 		this.rejectButton.click();
 	}

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const allure = require('@wdio/allure-reporter').default;
 
 module.exports = class Logger {
 	constructor() {
@@ -8,6 +9,14 @@ module.exports = class Logger {
 		if (!fs.existsSync(this.pathToScreenshots)) {
 			fs.mkdirSync(this.pathToScreenshots);
 		}
-		browser.saveScreenshot(`./screenshots/${fileName}`);
+		const screenshot = browser.saveScreenshot(`./screenshots/${fileName}`);
+		try {
+			allure.addAttachment('Screenshot on failure', screenshot, 'image/png');
+		} catch (e) {
+			console.log('Unable to create attachment in allure report');
+		}
+	}
+	step(stepName) {
+		allure.addStep(stepName);
 	}
 };

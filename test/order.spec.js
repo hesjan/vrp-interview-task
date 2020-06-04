@@ -15,8 +15,7 @@ describe('User', () => {
 			startBrowserMaximized();
 			PromotionalBanner.rejectConsent();
 			Header.searchFor(data.productGroup);
-			Filters.clickOnlyBuyNow();
-			browser.debug();
+			Filters.showOnlyBuyNowProducts();
 			SearchResults.selectRandomProductOnThePage();
 			const productName = Product.getName();
 			Product.clickAddToBasketButton();
